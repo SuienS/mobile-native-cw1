@@ -23,6 +23,9 @@
 		34D5740125CFD1BE00DBEE99 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */; };
 		34D5740825CFDC6700DBEE99 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */; };
 		34D5740C25CFDDC600DBEE99 /* WeightConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */; };
+		34F8AD2B25D799E4004ADB43 /* WeightUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */; };
+		34F8AD2F25D7DA08004ADB43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD2E25D7DA08004ADB43 /* Constants.swift */; };
+		34F8AD3225D817D4004ADB43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34F8AD3125D817D4004ADB43 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightConverterViewController.swift; sourceTree = "<group>"; };
+		34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnits.swift; sourceTree = "<group>"; };
+		34F8AD2E25D7DA08004ADB43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		34F8AD3125D817D4004ADB43 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		34948A5425CFAC6B00C16FD6 /* UnitConverterApp */ = {
 			isa = PBXGroup;
 			children = (
+				34F8AD2925D7994C004ADB43 /* Structures */,
 				34948A6D25CFAD8C00C16FD6 /* Common */,
 				34948A6C25CFAD7900C16FD6 /* Models */,
 				34948A6B25CFAD6D00C16FD6 /* Controllers */,
@@ -116,6 +123,7 @@
 			children = (
 				34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */,
 				34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */,
+				34F8AD3125D817D4004ADB43 /* Settings.bundle */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -159,6 +167,15 @@
 				3401D3B125CFED6A00F9FCD5 /* SpeedConverterViewController.swift */,
 			);
 			path = ConverterViewControllers;
+			sourceTree = "<group>";
+		};
+		34F8AD2925D7994C004ADB43 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */,
+				34F8AD2E25D7DA08004ADB43 /* Constants.swift */,
+			);
+			path = Structures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F8AD3225D817D4004ADB43 /* Settings.bundle in Resources */,
 				34948A6225CFAC6F00C16FD6 /* LaunchScreen.storyboard in Resources */,
 				34948A5F25CFAC6F00C16FD6 /* Assets.xcassets in Resources */,
 				34948A5D25CFAC6B00C16FD6 /* Main.storyboard in Resources */,
@@ -236,6 +254,7 @@
 				34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */,
 				3401D3AF25CFED3600F9FCD5 /* LengthConverterViewController.swift in Sources */,
 				3401D3AC25CFED1600F9FCD5 /* LiquidConverterViewController.swift in Sources */,
+				34F8AD2F25D7DA08004ADB43 /* Constants.swift in Sources */,
 				3401D3A925CFECFA00F9FCD5 /* SolidConverterViewController.swift in Sources */,
 				3401D3A625CFECCC00F9FCD5 /* TemperatureConverterViewController.swift in Sources */,
 				34D5740125CFD1BE00DBEE99 /* IntroViewController.swift in Sources */,
@@ -244,6 +263,7 @@
 				34D5740825CFDC6700DBEE99 /* ConverterViewController.swift in Sources */,
 				34D573F325CFCDF400DBEE99 /* SettingsViewController.swift in Sources */,
 				34D5740C25CFDDC600DBEE99 /* WeightConverterViewController.swift in Sources */,
+				34F8AD2B25D799E4004ADB43 /* WeightUnits.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

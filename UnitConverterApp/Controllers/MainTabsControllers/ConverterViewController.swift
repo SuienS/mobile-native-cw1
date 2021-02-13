@@ -12,7 +12,6 @@ class ConverterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Converter"
-
         // Do any additional setup after loading the view.
     }
     

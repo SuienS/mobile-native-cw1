@@ -11,8 +11,19 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "Settings"
+        if let settingsPagePATH = URL(string: UIApplication.openSettingsURLString + Bundle.main.bundleIdentifier!) {
+            if UIApplication.shared.canOpenURL(settingsPagePATH) {
+                UIApplication.shared.open(settingsPagePATH)
+            }
+        }
     }
-
+    @IBAction func buttonSettingsPressed(_ sender: UIButton) {
+        if let settingsPagePATH = URL(string: UIApplication.openSettingsURLString + Bundle.main.bundleIdentifier!) {
+            if UIApplication.shared.canOpenURL(settingsPagePATH) {
+                UIApplication.shared.open(settingsPagePATH)
+            }
+        }
+    }
+    
 }
