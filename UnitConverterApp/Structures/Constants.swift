@@ -9,6 +9,8 @@ import Foundation
 
 struct Constants {
         
+    // Source: https://www.unitconverters.net/weight-and-mass/kg-to-lbs.htm
     static let KgToLbs: Double = 2.2046226218
+    
     static let PoundsPerStone: Int = 14
 }

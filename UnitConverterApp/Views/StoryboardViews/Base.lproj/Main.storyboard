@@ -426,7 +426,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Go to &quot;Settings&quot; App"/>
                                 <connections>
-                                    <action selector="buttonSettingsPressed:" destination="RdR-9b-pRF" eventType="primaryActionTriggered" id="8o8-Pu-EjD"/>
+                                    <action selector="buttonSettingsPressed:" destination="RdR-9b-pRF" eventType="touchUpInside" id="n8u-p3-Vo1"/>
                                 </connections>
                             </button>
                         </subviews>
