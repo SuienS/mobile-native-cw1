@@ -24,6 +24,7 @@
 		34D5740825CFDC6700DBEE99 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */; };
 		34D5740C25CFDDC600DBEE99 /* WeightConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */; };
 		34E8187C25D92B17007108BA /* Unit Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34F8AD3925D8D070004ADB43 /* Unit Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		34E8188425D985B2007108BA /* TemperatureUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8188325D985B2007108BA /* TemperatureUnits.swift */; };
 		34F8AD2B25D799E4004ADB43 /* WeightUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */; };
 		34F8AD2F25D7DA08004ADB43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD2E25D7DA08004ADB43 /* Constants.swift */; };
 		34F8AD3225D817D4004ADB43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34F8AD3125D817D4004ADB43 /* Settings.bundle */; };
@@ -75,6 +76,7 @@
 		34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightConverterViewController.swift; sourceTree = "<group>"; };
+		34E8188325D985B2007108BA /* TemperatureUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureUnits.swift; sourceTree = "<group>"; };
 		34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnits.swift; sourceTree = "<group>"; };
 		34F8AD2E25D7DA08004ADB43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34F8AD3125D817D4004ADB43 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */,
 				34F8AD2E25D7DA08004ADB43 /* Constants.swift */,
+				34E8188325D985B2007108BA /* TemperatureUnits.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				34948A5A25CFAC6B00C16FD6 /* MainViewController.swift in Sources */,
 				34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */,
+				34E8188425D985B2007108BA /* TemperatureUnits.swift in Sources */,
 				34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */,
 				3401D3AF25CFED3600F9FCD5 /* LengthConverterViewController.swift in Sources */,
 				3401D3AC25CFED1600F9FCD5 /* LiquidConverterViewController.swift in Sources */,

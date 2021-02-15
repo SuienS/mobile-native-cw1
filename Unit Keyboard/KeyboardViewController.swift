@@ -50,9 +50,13 @@ class KeyboardViewController: UIInputViewController {
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         proxyTextDoc.deleteBackward()
+        UIView.animate(withDuration: 0.2, animations: {() -> Void in sender.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)}) {(_) -> Void in sender.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+        }
     }
     @IBAction func returnButtonPressed(_ sender: UIButton) {
-        //self.dismissKeyboard() TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        self.dismissKeyboard()
+        UIView.animate(withDuration: 0.2, animations: {() -> Void in sender.transform = CGAffineTransform.identity.scaledBy(x: 2.0, y: 2.0)}) {(_) -> Void in sender.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+        }
     }
     
     
