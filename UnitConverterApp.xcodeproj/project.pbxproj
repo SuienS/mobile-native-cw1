@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3401D3A625CFECCC00F9FCD5 /* TemperatureConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D3A525CFECCC00F9FCD5 /* TemperatureConverterViewController.swift */; };
-		3401D3A925CFECFA00F9FCD5 /* SolidConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D3A825CFECFA00F9FCD5 /* SolidConverterViewController.swift */; };
 		3401D3AC25CFED1600F9FCD5 /* LiquidConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D3AB25CFED1600F9FCD5 /* LiquidConverterViewController.swift */; };
 		3401D3AF25CFED3600F9FCD5 /* LengthConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D3AE25CFED3600F9FCD5 /* LengthConverterViewController.swift */; };
 		3401D3B225CFED6A00F9FCD5 /* SpeedConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401D3B125CFED6A00F9FCD5 /* SpeedConverterViewController.swift */; };
+		340A383A25E0271000B94F66 /* SpeedUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A383925E0271000B94F66 /* SpeedUnits.swift */; };
+		340A383E25E0CD8500B94F66 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A383D25E0CD8500B94F66 /* HistoryEntry.swift */; };
+		340A384225E11A2E00B94F66 /* HistorySingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */; };
+		340A384625E15AC100B94F66 /* LiquidUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384525E15AC100B94F66 /* LiquidUnits.swift */; };
 		34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */; };
 		34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */; };
 		34948A5A25CFAC6B00C16FD6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5925CFAC6B00C16FD6 /* MainViewController.swift */; };
 		34948A5D25CFAC6B00C16FD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34948A5B25CFAC6B00C16FD6 /* Main.storyboard */; };
 		34948A5F25CFAC6F00C16FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34948A5E25CFAC6F00C16FD6 /* Assets.xcassets */; };
 		34948A6225CFAC6F00C16FD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34948A6025CFAC6F00C16FD6 /* LaunchScreen.storyboard */; };
+		34971F3A25DADA8E00B6DBE2 /* UnitAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34971F3925DADA8E00B6DBE2 /* UnitAppUtils.swift */; };
 		34D573F325CFCDF400DBEE99 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D573F225CFCDF400DBEE99 /* SettingsViewController.swift */; };
 		34D573F625CFCE1100DBEE99 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */; };
 		34D5740125CFD1BE00DBEE99 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */; };
@@ -25,6 +29,7 @@
 		34D5740C25CFDDC600DBEE99 /* WeightConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */; };
 		34E8187C25D92B17007108BA /* Unit Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 34F8AD3925D8D070004ADB43 /* Unit Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		34E8188425D985B2007108BA /* TemperatureUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E8188325D985B2007108BA /* TemperatureUnits.swift */; };
+		34EE0DC225DECDE000BA10A8 /* LengthUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE0DC125DECDDF00BA10A8 /* LengthUnits.swift */; };
 		34F8AD2B25D799E4004ADB43 /* WeightUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */; };
 		34F8AD2F25D7DA08004ADB43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD2E25D7DA08004ADB43 /* Constants.swift */; };
 		34F8AD3225D817D4004ADB43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34F8AD3125D817D4004ADB43 /* Settings.bundle */; };
@@ -59,10 +64,13 @@
 
 /* Begin PBXFileReference section */
 		3401D3A525CFECCC00F9FCD5 /* TemperatureConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverterViewController.swift; sourceTree = "<group>"; };
-		3401D3A825CFECFA00F9FCD5 /* SolidConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidConverterViewController.swift; sourceTree = "<group>"; };
 		3401D3AB25CFED1600F9FCD5 /* LiquidConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidConverterViewController.swift; sourceTree = "<group>"; };
 		3401D3AE25CFED3600F9FCD5 /* LengthConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthConverterViewController.swift; sourceTree = "<group>"; };
 		3401D3B125CFED6A00F9FCD5 /* SpeedConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedConverterViewController.swift; sourceTree = "<group>"; };
+		340A383925E0271000B94F66 /* SpeedUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUnits.swift; sourceTree = "<group>"; };
+		340A383D25E0CD8500B94F66 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
+		340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySingleViewController.swift; sourceTree = "<group>"; };
+		340A384525E15AC100B94F66 /* LiquidUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidUnits.swift; sourceTree = "<group>"; };
 		34948A5225CFAC6B00C16FD6 /* UnitConverterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,12 +79,14 @@
 		34948A5E25CFAC6F00C16FD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34948A6125CFAC6F00C16FD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34948A6325CFAC6F00C16FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34971F3925DADA8E00B6DBE2 /* UnitAppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitAppUtils.swift; sourceTree = "<group>"; };
 		34D573F225CFCDF400DBEE99 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightConverterViewController.swift; sourceTree = "<group>"; };
 		34E8188325D985B2007108BA /* TemperatureUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureUnits.swift; sourceTree = "<group>"; };
+		34EE0DC125DECDDF00BA10A8 /* LengthUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthUnits.swift; sourceTree = "<group>"; };
 		34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnits.swift; sourceTree = "<group>"; };
 		34F8AD2E25D7DA08004ADB43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34F8AD3125D817D4004ADB43 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 		34948A6C25CFAD7900C16FD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				340A383D25E0CD8500B94F66 /* HistoryEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +201,7 @@
 				34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */,
 				34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */,
 				34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */,
+				340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */,
 			);
 			path = MainTabsControllers;
 			sourceTree = "<group>";
@@ -197,6 +209,7 @@
 		34D573FE25CFCF1600DBEE99 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				34971F3925DADA8E00B6DBE2 /* UnitAppUtils.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -206,7 +219,6 @@
 			children = (
 				34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */,
 				3401D3A525CFECCC00F9FCD5 /* TemperatureConverterViewController.swift */,
-				3401D3A825CFECFA00F9FCD5 /* SolidConverterViewController.swift */,
 				3401D3AB25CFED1600F9FCD5 /* LiquidConverterViewController.swift */,
 				3401D3AE25CFED3600F9FCD5 /* LengthConverterViewController.swift */,
 				3401D3B125CFED6A00F9FCD5 /* SpeedConverterViewController.swift */,
@@ -220,6 +232,9 @@
 				34F8AD2A25D799E4004ADB43 /* WeightUnits.swift */,
 				34F8AD2E25D7DA08004ADB43 /* Constants.swift */,
 				34E8188325D985B2007108BA /* TemperatureUnits.swift */,
+				34EE0DC125DECDDF00BA10A8 /* LengthUnits.swift */,
+				340A383925E0271000B94F66 /* SpeedUnits.swift */,
+				340A384525E15AC100B94F66 /* LiquidUnits.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -345,19 +360,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				34948A5A25CFAC6B00C16FD6 /* MainViewController.swift in Sources */,
+				340A383E25E0CD8500B94F66 /* HistoryEntry.swift in Sources */,
 				34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */,
 				34E8188425D985B2007108BA /* TemperatureUnits.swift in Sources */,
 				34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */,
 				3401D3AF25CFED3600F9FCD5 /* LengthConverterViewController.swift in Sources */,
 				3401D3AC25CFED1600F9FCD5 /* LiquidConverterViewController.swift in Sources */,
+				340A384225E11A2E00B94F66 /* HistorySingleViewController.swift in Sources */,
 				34F8AD2F25D7DA08004ADB43 /* Constants.swift in Sources */,
-				3401D3A925CFECFA00F9FCD5 /* SolidConverterViewController.swift in Sources */,
+				34EE0DC225DECDE000BA10A8 /* LengthUnits.swift in Sources */,
+				34971F3A25DADA8E00B6DBE2 /* UnitAppUtils.swift in Sources */,
 				3401D3A625CFECCC00F9FCD5 /* TemperatureConverterViewController.swift in Sources */,
 				34D5740125CFD1BE00DBEE99 /* IntroViewController.swift in Sources */,
 				3401D3B225CFED6A00F9FCD5 /* SpeedConverterViewController.swift in Sources */,
 				34D573F625CFCE1100DBEE99 /* HistoryViewController.swift in Sources */,
 				34D5740825CFDC6700DBEE99 /* ConverterViewController.swift in Sources */,
+				340A383A25E0271000B94F66 /* SpeedUnits.swift in Sources */,
 				34D573F325CFCDF400DBEE99 /* SettingsViewController.swift in Sources */,
+				340A384625E15AC100B94F66 /* LiquidUnits.swift in Sources */,
 				34D5740C25CFDDC600DBEE99 /* WeightConverterViewController.swift in Sources */,
 				34F8AD2B25D799E4004ADB43 /* WeightUnits.swift in Sources */,
 			);

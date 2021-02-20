@@ -11,7 +11,7 @@ class LengthConverterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Length"
         // Do any additional setup after loading the view.
     }
     

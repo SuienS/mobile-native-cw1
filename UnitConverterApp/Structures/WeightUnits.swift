@@ -9,14 +9,25 @@ import Foundation
 
 struct Kilograms {
         
-    var kilogramsValue: Double = 0.0
-    var gramsValue: Double = 0.0
+    private var kilogramsValue: Double = 0.0
+    private var gramsValue: Double = 0.0
 
     init(kilograms val_kg: Double) {
         self.kilogramsValue = val_kg
         self.gramsValue = self.toGrams(kilogram: val_kg)
     }
     
+    // Encapsulation
+    var valueKilograms: Double {
+        return self.kilogramsValue
+    }
+    
+    var valueGrams: Double {
+        return self.gramsValue
+    }
+    
+    
+    // Conversions
     init(grams val_g: Double) {
         self.kilogramsValue = self.toKilograms(grams: val_g)
         self.gramsValue = val_g
@@ -25,9 +36,6 @@ struct Kilograms {
     func toPounds() -> Pounds{
         return Pounds(pounds: (kilogramsValue * Constants.KgToLbs))
     }
-    
-    // Conversions
-    
     
     
     
@@ -45,9 +53,9 @@ struct Kilograms {
 }
 
 struct Pounds {
-    var poundsValue: Double = 0.0
-    var stPoundsValue_st: Int = 0
-    var stPoundsValue_lbs: Int = 0
+    private var poundsValue: Double = 0.0
+    private var stPoundsValue_st: Int = 0
+    private var stPoundsValue_lbs: Int = 0
     
     init(pounds val_p: Double) {
         self.poundsValue = val_p
@@ -60,6 +68,20 @@ struct Pounds {
         self.stPoundsValue_st = val_st
         self.stPoundsValue_lbs = val_lbs
     }
+    
+    // Encapsulation
+    var valuePounds: Double {
+        return self.poundsValue
+    }
+    
+    var valueStPounds_st: Int {
+        return self.stPoundsValue_st
+    }
+    
+    var valueStPounds_lbs: Int {
+        return self.stPoundsValue_lbs
+    }
+    
     
     // Conversions
     func toKilograms() -> Kilograms {
