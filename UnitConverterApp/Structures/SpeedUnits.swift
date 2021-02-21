@@ -16,7 +16,7 @@ struct MPS {
     }
     
     // Encapulation
-    var valueMPE: Double {
+    var valueMPS: Double {
         return self.mpsValue
     }
     
@@ -26,11 +26,11 @@ struct MPS {
         return KMPH(kmph: mpsValue * Constants.MpsToKmph)
     }
     
-    func toMiPS() -> MiPS {
-        return MiPS(mips: mpsValue * Constants.MetreToMile)
+    func toMPH() -> MPH {
+        return MPH(mph: mpsValue * Constants.MpsToMph)
     }
     
-    func toKnots() -> Knot {
+    func toKnot() -> Knot {
         return Knot(knots: mpsValue * Constants.MpsToKnot)
     }
     
@@ -54,41 +54,41 @@ struct KMPH {
         return MPS(mps: kmphValue / Constants.MpsToKmph)
     }
     
-    func toMiPS() -> MiPS {
-        return MiPS(mips: kmphValue * Constants.KmphToMips)
+    func toMPH() -> MPH {
+        return MPH(mph: kmphValue * Constants.KmphToMph)
     }
     
     func toKnot() -> Knot {
-        return Knot(knots: kmphValue * Constants.KmphToMips)
+        return Knot(knots: kmphValue * Constants.KmphToKnots)
     }
     
     
 }
 
-struct MiPS {
+struct MPH {
     
-    private var mipsValue: Double = 0.0
+    private var mphValue: Double = 0.0
     
-    init(mips val_mips: Double) {
-        self.mipsValue = val_mips
+    init(mph val_mph: Double) {
+        self.mphValue = val_mph
     }
     
     // Encapsulation
-    var valueMiPS: Double {
-        return self.mipsValue
+    var valueMPH: Double {
+        return self.mphValue
     }
     
     // Conversions
     func toKMPH() -> KMPH {
-        return KMPH(kmph: mipsValue / Constants.KmphToMips)
+        return KMPH(kmph: mphValue / Constants.KmphToMph)
     }
     
     func toMPS() -> MPS {
-        return MPS(mps: mipsValue / Constants.MetreToMile)
+        return MPS(mps: mphValue / Constants.MpsToMph)
     }
     
-    func toKnots() -> Knot {
-        return Knot(knots: mipsValue * Constants.MipsToKnots)
+    func toKnot() -> Knot {
+        return Knot(knots: mphValue * Constants.MphToKnots)
     }
     
     
@@ -116,7 +116,7 @@ struct Knot {
         return MPS(mps: knotsValue / Constants.MpsToKnot)
     }
     
-    func toMiPS() -> MiPS {
-        return MiPS(mips: knotsValue / Constants.MipsToKnots)
+    func toMPH() -> MPH {
+        return MPH(mph: knotsValue / Constants.MphToKnots)
     }
 }

@@ -12,10 +12,10 @@ class UnitAppUtils{
     static var historyEntryIndex: Int = 0//Should be initialized at the begining of the app
     
     
-    static func validateTextFieldInput(textFieldIn tf_in: UITextField, inputUnit c_unit: WeightUnits )->Bool{
+    static func validateTextFieldInput(textFieldIn tf_in: UITextField, inputUnit c_unit: Units )->Bool{
         
         switch c_unit {
-        case .Grams, .Kilograms, .Pounds:
+        case .Grams, .Kilograms, .Pounds, .Kelvin, .Metre, .Centimetre, .Millimetre, .Kilometre, .Mile, .Yard, .Inch, .MPS, .KMPH, .MPH, .Knot, .GallonUK, .Litre, .PintUK, .FluidOunce, .Millilitre:
             let doubleVal = Double(tf_in.text!)
             if doubleVal != nil , doubleVal! >= 0 { //Optionals For validation
                 tf_in.layer.borderColor = UIColor.systemBlue.cgColor
@@ -37,6 +37,24 @@ class UnitAppUtils{
         case .Stone_Pounds_Lbs:
             let intVal = Int(tf_in.text!)
             if intVal != nil , ((intVal!) <= 13), ((intVal!) >= 0) { //Optionals For validation
+                tf_in.layer.borderColor = UIColor.systemBlue.cgColor
+                return true
+            } else {
+                tf_in.layer.borderColor = UIColor.systemRed.cgColor
+                return false
+            }
+        case .Celsius:
+            let doubleVal = Double(tf_in.text!)
+            if doubleVal != nil , doubleVal! >= -273.15 { //Optionals For validation
+                tf_in.layer.borderColor = UIColor.systemBlue.cgColor
+                return true
+            } else {
+                tf_in.layer.borderColor = UIColor.systemRed.cgColor
+                return false
+            }
+        case .Fahrenheit:
+            let doubleVal = Double(tf_in.text!)
+            if doubleVal != nil , doubleVal! >= -459.67 { //Optionals For validation
                 tf_in.layer.borderColor = UIColor.systemBlue.cgColor
                 return true
             } else {
@@ -127,5 +145,4 @@ class UnitAppUtils{
             
         }
     }
-    
 }

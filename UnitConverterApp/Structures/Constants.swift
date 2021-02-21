@@ -7,6 +7,33 @@
 
 import Foundation
 
+enum Units {
+    case Grams
+    case Kilograms
+    case Pounds
+    case Stone_Pounds_St
+    case Stone_Pounds_Lbs
+    case Celsius
+    case Fahrenheit
+    case Kelvin
+    case Metre
+    case Kilometre
+    case Mile
+    case Centimetre
+    case Millimetre
+    case Yard
+    case Inch
+    case MPS
+    case KMPH
+    case MPH
+    case Knot
+    case GallonUK
+    case Litre
+    case PintUK
+    case FluidOunce
+    case Millilitre
+}
+
 struct Constants {
        
     // Weight
@@ -32,18 +59,20 @@ struct Constants {
     
     static let MileToInch: Double = 63360
     
-    static let YardToInch: Double = 32
+    static let YardToInch: Double = 36
     
     // Speed
     static let MpsToKmph: Double = 3.6
     
     static let MpsToKnot: Double = 1.9438444924
     
-    static let KmphToMips: Double = 0.0001726031
+    static let KmphToMph: Double = 0.6213711922
     
     static let KmphToKnots: Double = 0.5396118248
     
-    static let MipsToKnots: Double = 3126.3157895
+    static let MphToKnots: Double = 0.8684210526
+    
+    static let MpsToMph: Double = 2.2369362921
     
     // Liquid
     static let UkGToLitre: Double = 4.54609

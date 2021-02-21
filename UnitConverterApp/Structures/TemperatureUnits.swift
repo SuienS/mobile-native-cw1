@@ -71,7 +71,7 @@ struct Fahrenheit {
         return Celsius(celsius: ((fahrenheitValue - Constants.CelsiusToFahrenheit_add)/Constants.CelsiusToFahrenheit_mul))
     }
     
-    func toFahrenheit() -> Kelvin {
+    func toKelvin() -> Kelvin {
         return Kelvin(kelvin: (((fahrenheitValue - Constants.CelsiusToFahrenheit_add)/Constants.CelsiusToFahrenheit_mul) + Constants.CelsiusToKelvin))
     }
     
