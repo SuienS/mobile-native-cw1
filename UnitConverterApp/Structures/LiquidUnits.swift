@@ -5,8 +5,10 @@
 //  Created by Rammuni Ravidu Suien Silva on 2021-02-20.
 //
 
+// Contains the structures for the Liquid units
 import Foundation
 
+//  Structure for Gallon (UK)
 struct GallonUK {
     
     private var gallonukValue: Double = 0.0
@@ -35,6 +37,8 @@ struct GallonUK {
     
 }
 
+
+// Structure for Litre
 struct Litre {
     private var litreValue: Double = 0.0
     private var millilitreValue: Double = 0.0
@@ -74,6 +78,7 @@ struct Litre {
     
 }
 
+// Structure for Pint (UK)
 struct PintUK {
     private var pintukValue: Double = 0.0
     
@@ -103,6 +108,8 @@ struct PintUK {
     
 }
 
+
+// Structure for Fluid Ounce
 struct FluidOunce {
     private var fluidonceValue: Double = 0.0
     

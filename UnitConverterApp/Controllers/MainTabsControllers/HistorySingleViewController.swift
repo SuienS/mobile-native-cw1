@@ -9,10 +9,13 @@ import UIKit
 
 class HistorySingleViewController: UIViewController {
 
+
     private let historyEntry: String
     private let historyType: String
     private let historyData: [Substring.SubSequence]
 
+    
+    // Parameterized Initializer
     init(historyEntry h_entry: String) {
         self.historyEntry = h_entry
         self.historyType = String(h_entry.split(separator: ":")[0])
@@ -26,10 +29,10 @@ class HistorySingleViewController: UIViewController {
         view.backgroundColor = .systemGray
         title = historyType
         addHistoryLabels()
-
-        // Do any additional setup after loading the view.
     }
     
+    
+    // Method for Dynamically creating the UI for single history entry
     func addHistoryLabels() {
         var labelHistoryEntry: [UILabel] = []
         var yPosView = 90
@@ -59,7 +62,7 @@ class HistorySingleViewController: UIViewController {
         lblsEq[lblsEq.count-1].isHidden = true
     }
         
-    
+    // Neglectning the init(coder:) initializer
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -5,8 +5,11 @@
 //  Created by Rammuni Ravidu Suien Silva on 2021-02-18.
 //
 
+// Contains the structures for length units
 import Foundation
 
+
+// Structure for Meter
 struct Metre {
     private var metreValue: Double = 0.0
     private var kiloMetreValue: Double = 0.0
@@ -71,6 +74,8 @@ struct Metre {
     
 }
 
+
+// Structure for Mile
 struct Mile {
     
     private var mileValue: Double = 0.0
@@ -85,6 +90,7 @@ struct Mile {
     }
     
     
+    // Conversions
     func toMetre() -> Metre {
         return Metre(metres: mileValue / Constants.MetreToMile)
     }
@@ -99,6 +105,8 @@ struct Mile {
     
 }
 
+
+// Structure for Yard
 struct Yard {
     
     private var yardsValue: Double = 0.0
@@ -112,7 +120,7 @@ struct Yard {
         self.yardsValue
     }
     
-    
+    // Conversions
     func toMetre() -> Metre {
         return Metre(metres: yardsValue / Constants.MetreToYard)
     }
@@ -128,6 +136,7 @@ struct Yard {
 }
 
 
+// Structure for inch
 struct Inch {
     
     private var inchValue: Double = 0.0
@@ -142,6 +151,7 @@ struct Inch {
     }
     
     
+    // Conversions
     func toMetre() -> Metre {
         return Metre(metres: inchValue / Constants.MetreToInch)
     }

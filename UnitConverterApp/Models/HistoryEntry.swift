@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Model that holds the data for History Entries
 class HistoryEntry: Codable {
     
     var historyEntry: String = ""

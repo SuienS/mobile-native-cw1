@@ -5,8 +5,11 @@
 //  Created by Rammuni Ravidu Suien Silva on 2021-02-14.
 //
 
+
+// Contains the Structures for the Temperature Units
 import Foundation
 
+// Structure for Celsius
 struct Celsius {
     
     private var celsiusValue: Double = 0.0
@@ -21,6 +24,7 @@ struct Celsius {
     }
     
     
+    // Conversion
     func toKelvin() -> Kelvin {
         return Kelvin(kelvin: (celsiusValue + Constants.CelsiusToKelvin))
     }
@@ -32,6 +36,8 @@ struct Celsius {
     
 }
 
+
+// Structure fot Kelvin
 struct Kelvin {
     private var kelvinValue: Double = 0.0
     
@@ -44,6 +50,8 @@ struct Kelvin {
         return self.kelvinValue
     }
     
+    
+    // Conversions
     func toCelsius() -> Celsius {
         return Celsius(celsius: (kelvinValue - Constants.CelsiusToKelvin))
     }
@@ -54,6 +62,8 @@ struct Kelvin {
     
 }
 
+
+// Structure for Fahrenheit
 struct Fahrenheit {
     
     private var fahrenheitValue: Double = 0.0
@@ -67,6 +77,8 @@ struct Fahrenheit {
         return self.fahrenheitValue
     }
     
+    
+    // Conversions
     func toCelsius() -> Celsius {
         return Celsius(celsius: ((fahrenheitValue - Constants.CelsiusToFahrenheit_add)/Constants.CelsiusToFahrenheit_mul))
     }

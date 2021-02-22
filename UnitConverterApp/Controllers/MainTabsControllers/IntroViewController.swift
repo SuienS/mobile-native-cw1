@@ -11,9 +11,10 @@ class IntroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Knowledge Hub"
 
         // Do any additional setup after loading the view.
     }
-    
+
 
 }

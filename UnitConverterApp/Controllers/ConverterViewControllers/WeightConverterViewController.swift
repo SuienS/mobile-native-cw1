@@ -7,11 +7,14 @@
 
 import UIKit
 
+// ViewController for Weight Converter
 class WeightConverterViewController: UIViewController {
     
     private var prec = "0"
     var validated = false
     
+    
+    // Outlets for the UI elements
     @IBOutlet weak var buttonSave: UIButton!
     @IBOutlet weak var textFieldGrams: UITextField!
     @IBOutlet weak var textFieldKilograms: UITextField!
@@ -19,13 +22,15 @@ class WeightConverterViewController: UIViewController {
     @IBOutlet weak var textFieldStonePounds_st: UITextField!
     @IBOutlet weak var textFieldStonePounds_lbs: UITextField!
     
-    // TRY TO USE LAZY VARS TOO!!!!!!!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Weight"
         prec = UserDefaults.standard.string(forKey: "precision_decimals") ?? "2" // Nil coalescing
 
+        // Setting Precision
         UserDefaults.standard.string(forKey: "precision_decimals")
+        
+        // UI setup
         
         buttonSave.isEnabled = false
         
@@ -52,14 +57,19 @@ class WeightConverterViewController: UIViewController {
         textFieldStonePounds_st.layer.borderColor = UIColor.systemGray.cgColor
         textFieldStonePounds_lbs.layer.borderColor = UIColor.systemGray.cgColor
         
+        // Synchronizing the History Data
         UnitAppUtils.syncHistoryData()
-        // Do any additional setup after loading the view.
     }
     
     
+    // TextField EditingChanged Functions
+    
     @IBAction func textFieldGramsChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Grams) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
 
             
@@ -75,6 +85,7 @@ class WeightConverterViewController: UIViewController {
             let stPoundsVal_lbs = poundsValStruct.valueStPounds_lbs
             
             
+            // Displaying Output answers in UI
             textFieldKilograms.text = String(kilogramsVal)
             textFieldPounds.text = String(poundsVal)
             textFieldStonePounds_st.text = String(stPoundsVal_st)
@@ -91,8 +102,11 @@ class WeightConverterViewController: UIViewController {
     
     
     @IBAction func textFieldKilogramsChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Kilograms) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -106,7 +120,7 @@ class WeightConverterViewController: UIViewController {
             let stPoundsVal_st = poundsValStruct.valueStPounds_st
             let stPoundsVal_lbs = poundsValStruct.valueStPounds_lbs
             
-            
+            // Displaying Output answers in UI
             textFieldGrams.text = String(gramsVal)
             textFieldPounds.text = String(poundsVal)
             textFieldStonePounds_st.text = String(stPoundsVal_st)
@@ -121,8 +135,11 @@ class WeightConverterViewController: UIViewController {
     }
     
     @IBAction func textFieldPoundsChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Pounds) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
 
             
@@ -137,7 +154,7 @@ class WeightConverterViewController: UIViewController {
             let stPoundsVal_st = poundsValStruct.valueStPounds_st
             let stPoundsVal_lbs = poundsValStruct.valueStPounds_lbs
             
-            
+            // Displaying Output answers in UI
             textFieldGrams.text = String(gramsVal)
             textFieldKilograms.text = String(kilogramsVal)
             textFieldStonePounds_st.text = String(stPoundsVal_st)
@@ -152,8 +169,11 @@ class WeightConverterViewController: UIViewController {
     }
     
     @IBAction func textFieldsStPoundsChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: textFieldStonePounds_st, inputUnit: Units.Stone_Pounds_St), UnitAppUtils.validateTextFieldInput(textFieldIn: textFieldStonePounds_lbs, inputUnit: Units.Stone_Pounds_Lbs) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
 
             
@@ -169,7 +189,7 @@ class WeightConverterViewController: UIViewController {
             let poundsVal = UnitAppUtils.resultRound(poundsValStruct.valuePounds, precision: prec)
             
             
-            
+            // Displaying Output answers in UI
             textFieldGrams.text = String(gramsVal)
             textFieldKilograms.text = String(kilogramsVal)
             textFieldPounds.text = String(poundsVal)
@@ -184,12 +204,12 @@ class WeightConverterViewController: UIViewController {
     }
     
     
-    
+    // Graying the TextFields that are not active
     @IBAction func textFieldEditEnded(_ sender: UITextField) {
         sender.layer.borderColor = UIColor.systemGray.cgColor
     }
     
-    
+    // Save Button Handling
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if validated {
             sender.setTitle("Saved", for: .disabled)
@@ -198,6 +218,7 @@ class WeightConverterViewController: UIViewController {
         }
     }
     
+    // Generating the History entry to be saved
     func saveHistory() {
         var historyEntry = "Weight: "
         historyEntry += "\( textFieldGrams.text ?? "er" ) g|"
@@ -207,15 +228,12 @@ class WeightConverterViewController: UIViewController {
         UnitAppUtils.saveHistory(historyString: historyEntry)
     }
     
-    
+
+    // Dismiss keyboard on endEditing
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
-    // TODO: Add error label to UI
-
-    
     
 }
 

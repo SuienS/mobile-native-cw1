@@ -5,8 +5,12 @@
 //  Created by Rammuni Ravidu Suien Silva on 2021-02-19.
 //
 
+
+// Contains the structure for the Speed Units
 import Foundation
 
+
+// Structure for Metres Per Second
 struct MPS {
     
     private var mpsValue: Double = 0.0
@@ -36,6 +40,8 @@ struct MPS {
     
 }
 
+
+// Structure for Kilometres Per Hour
 struct KMPH {
     
     private var kmphValue: Double = 0.0
@@ -65,6 +71,8 @@ struct KMPH {
     
 }
 
+
+// Structure for Miles per Hour
 struct MPH {
     
     private var mphValue: Double = 0.0
@@ -95,6 +103,8 @@ struct MPH {
     
 }
 
+
+// Structure for Knots
 struct Knot {
     private var knotsValue: Double = 0.0
     

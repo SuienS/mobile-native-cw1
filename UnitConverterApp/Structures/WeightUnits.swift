@@ -5,8 +5,12 @@
 //  Created by Rammuni Ravidu Suien Silva on 2021-02-13.
 //
 
+
+// Contains the Structures for the Weight Units
 import Foundation
 
+
+// Structure for Kilograms
 struct Kilograms {
         
     private var kilogramsValue: Double = 0.0
@@ -52,6 +56,8 @@ struct Kilograms {
     
 }
 
+
+// Structure for Pounds
 struct Pounds {
     private var poundsValue: Double = 0.0
     private var stPoundsValue_st: Int = 0

@@ -7,11 +7,14 @@
 
 import UIKit
 
+// ViewController for Speed Converter
 class SpeedConverterViewController: UIViewController {
 
     private var prec = "0"
     var validated = false
     
+    
+    // Outlets for the UI elements
     @IBOutlet weak var buttonSave: UIButton!
     @IBOutlet weak var textFieldMPS: UITextField!
     @IBOutlet weak var textFieldKMPH: UITextField!
@@ -25,7 +28,10 @@ class SpeedConverterViewController: UIViewController {
         
         prec = UserDefaults.standard.string(forKey: "precision_decimals") ?? "2" // Nil coalescing
 
+        // Setting Precision
         UserDefaults.standard.string(forKey: "precision_decimals")
+        
+        // UI setup
         
         buttonSave.isEnabled = false
         
@@ -50,14 +56,19 @@ class SpeedConverterViewController: UIViewController {
         textFieldMPH.layer.borderColor = UIColor.systemGray.cgColor
         textFieldKnots.layer.borderColor = UIColor.systemGray.cgColor
        
+        // Synchronizing the History Data
         UnitAppUtils.syncHistoryData()
 
     }
     
+    // TextField EditingChanged Functions
+    
     @IBAction func textFieldMPSChanged(_ sender: UITextField) {
         
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.MPS) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -74,7 +85,7 @@ class SpeedConverterViewController: UIViewController {
             let mphVal = UnitAppUtils.resultRound(mphValStruct.valueMPH, precision: prec)
             let knotVal = UnitAppUtils.resultRound(knotsValStruct.valueKnot, precision: prec)
 
-            
+            // Displaying Output answers in UI
             textFieldKMPH.text = String(kmphVal)
             textFieldMPH.text = String(mphVal)
             textFieldKnots.text = String(knotVal)
@@ -89,9 +100,14 @@ class SpeedConverterViewController: UIViewController {
         
     }
     
+
+    
     @IBAction func textFieldKMPHChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.KMPH) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -109,6 +125,7 @@ class SpeedConverterViewController: UIViewController {
             let knotVal = UnitAppUtils.resultRound(knotsValStruct.valueKnot, precision: prec)
 
             
+            // Displaying Output answers in UI
             textFieldMPS.text = String(mpsVal)
             textFieldMPH.text = String(mphVal)
             textFieldKnots.text = String(knotVal)
@@ -124,8 +141,10 @@ class SpeedConverterViewController: UIViewController {
     
     @IBAction func textFieldMPHChanged(_ sender: UITextField) {
         
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.MPH) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -142,7 +161,7 @@ class SpeedConverterViewController: UIViewController {
             let kmphVal = UnitAppUtils.resultRound(kmphValStruct.valueKMPH, precision: prec)
             let knotVal = UnitAppUtils.resultRound(knotsValStruct.valueKnot, precision: prec)
 
-            
+            // Displaying Output answers in UI
             textFieldMPS.text = String(mpsVal)
             textFieldKMPH.text = String(kmphVal)
             textFieldKnots.text = String(knotVal)
@@ -158,8 +177,12 @@ class SpeedConverterViewController: UIViewController {
     }
     
     @IBAction func textFieldKnotsChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Knot) {
             
+            
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -176,7 +199,7 @@ class SpeedConverterViewController: UIViewController {
             let kmphVal = UnitAppUtils.resultRound(kmphValStruct.valueKMPH, precision: prec)
             let mphVal = UnitAppUtils.resultRound(mphValStruct.valueMPH, precision: prec)
 
-            
+            // Displaying Output answers in UI
             textFieldMPS.text = String(mpsVal)
             textFieldKMPH.text = String(kmphVal)
             textFieldMPH.text = String(mphVal)
@@ -195,12 +218,12 @@ class SpeedConverterViewController: UIViewController {
     
     
     
-    // Support Functions
+    // Graying the TextFields that are not active
     @IBAction func textFieldEditEnded(_ sender: UITextField) {
         sender.layer.borderColor = UIColor.systemGray.cgColor
     }
     
-    
+    // Save Button Handling
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if validated {
             sender.setTitle("Saved", for: .disabled)
@@ -209,6 +232,8 @@ class SpeedConverterViewController: UIViewController {
         }
     }
     
+    
+    // Generating the History entry to be saved
     func saveHistory() {
         var historyEntry = "Speed: "
         historyEntry += "\( textFieldMPS.text ?? "er" ) ms⁻¹|"
@@ -219,7 +244,7 @@ class SpeedConverterViewController: UIViewController {
         UnitAppUtils.saveHistory(historyString: historyEntry)
     }
     
-    
+    // Dismiss keyboard on endEditing
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false

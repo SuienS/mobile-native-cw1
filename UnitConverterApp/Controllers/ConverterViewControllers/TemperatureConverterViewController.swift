@@ -7,23 +7,18 @@
 
 import UIKit
 
-enum TemperatureUnits {
-    case Celsius
-    case Fahrenheit
-    case Kelvin
-}
-
+// ViewController for Temperature Converter
 class TemperatureConverterViewController: UIViewController {
     
     private var prec = "0"
     var validated = false
     
+    
+    // Outlets for the UI elements
     @IBOutlet weak var buttonSave: UIButton!
     @IBOutlet weak var textFieldCelsius: UITextField!
     @IBOutlet weak var textFieldKelvin: UITextField!
     @IBOutlet weak var textFieldFahrenheit: UITextField!
-    
-    
     
 
     override func viewDidLoad() {
@@ -32,7 +27,10 @@ class TemperatureConverterViewController: UIViewController {
         
         prec = UserDefaults.standard.string(forKey: "precision_decimals") ?? "2" // Nil coalescing
 
+        // Setting Precision
         UserDefaults.standard.string(forKey: "precision_decimals")
+       
+        // UI setup
         
         buttonSave.isEnabled = false
         
@@ -53,14 +51,20 @@ class TemperatureConverterViewController: UIViewController {
         textFieldKelvin.layer.borderColor = UIColor.systemGray.cgColor
         textFieldFahrenheit.layer.borderColor = UIColor.systemGray.cgColor
         
+        // Synchronizing the History Data
         UnitAppUtils.syncHistoryData()
 
     }
     
+
+    // TextField EditingChanged Functions
     
     @IBAction func textFieldCelsiusChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Celsius) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
 
             
@@ -75,7 +79,7 @@ class TemperatureConverterViewController: UIViewController {
             let kelvinVal = UnitAppUtils.resultRound(kelvinValStruct.valueKelvin, precision: prec)
             let fahrenheitVal = UnitAppUtils.resultRound(fahrenheitValStruct.valueFahrenheit, precision: prec)
             
-            
+            // Displaying Output answers in UI
             textFieldKelvin.text = String(kelvinVal)
             textFieldFahrenheit.text = String(fahrenheitVal)
             
@@ -89,8 +93,11 @@ class TemperatureConverterViewController: UIViewController {
     }
     
     @IBAction func textFieldKelvinChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Kelvin) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
 
             
@@ -106,7 +113,7 @@ class TemperatureConverterViewController: UIViewController {
             let celsiusVal = UnitAppUtils.resultRound(celsiusValStruct.valueCelsius, precision: prec)
             let fahrenheitVal = UnitAppUtils.resultRound(fahrenheitValStruct.valueFahrenheit, precision: prec)
             
-            
+            // Displaying Output answers in UI
             textFieldCelsius.text = String(celsiusVal)
             textFieldFahrenheit.text = String(fahrenheitVal)
             
@@ -150,14 +157,12 @@ class TemperatureConverterViewController: UIViewController {
     }
     
     
-    
-    
-    
+    // Graying the TextFields that are not active
     @IBAction func textFieldEditEnded(_ sender: UITextField) {
         sender.layer.borderColor = UIColor.systemGray.cgColor
     }
     
-    
+    // Save Button Handling
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if validated {
             sender.setTitle("Saved", for: .disabled)
@@ -166,6 +171,8 @@ class TemperatureConverterViewController: UIViewController {
         }
     }
     
+    
+    // Generating the History entry to be saved
     func saveHistory() {
         var historyEntry = "Temperature: "
         historyEntry += "\( textFieldCelsius.text ?? "er" ) °C|"
@@ -175,7 +182,7 @@ class TemperatureConverterViewController: UIViewController {
         UnitAppUtils.saveHistory(historyString: historyEntry)
     }
     
-    
+    // Dismiss keyboard on endEditing
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false

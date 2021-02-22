@@ -15,6 +15,7 @@
 		340A383E25E0CD8500B94F66 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A383D25E0CD8500B94F66 /* HistoryEntry.swift */; };
 		340A384225E11A2E00B94F66 /* HistorySingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */; };
 		340A384625E15AC100B94F66 /* LiquidUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384525E15AC100B94F66 /* LiquidUnits.swift */; };
+		340A384C25E3677800B94F66 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384B25E3677800B94F66 /* TabBarViewController.swift */; };
 		34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */; };
 		34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */; };
 		34948A5A25CFAC6B00C16FD6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5925CFAC6B00C16FD6 /* MainViewController.swift */; };
@@ -35,7 +36,6 @@
 		34F8AD3225D817D4004ADB43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34F8AD3125D817D4004ADB43 /* Settings.bundle */; };
 		34F8AD3C25D8D070004ADB43 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD3B25D8D070004ADB43 /* KeyboardViewController.swift */; };
 		34F8AD5025D8DB2B004ADB43 /* UnitKeyboardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F8AD4F25D8DB2B004ADB43 /* UnitKeyboardStoryboard.storyboard */; };
-		34F8AD5C25D9191F004ADB43 /* UniKeyboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F8AD5A25D9191F004ADB43 /* UniKeyboardTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +71,7 @@
 		340A383D25E0CD8500B94F66 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
 		340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySingleViewController.swift; sourceTree = "<group>"; };
 		340A384525E15AC100B94F66 /* LiquidUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidUnits.swift; sourceTree = "<group>"; };
+		340A384B25E3677800B94F66 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		34948A5225CFAC6B00C16FD6 /* UnitConverterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnitConverterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +95,6 @@
 		34F8AD3B25D8D070004ADB43 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		34F8AD3D25D8D070004ADB43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F8AD4F25D8DB2B004ADB43 /* UnitKeyboardStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UnitKeyboardStoryboard.storyboard; sourceTree = "<group>"; };
-		34F8AD5A25D9191F004ADB43 /* UniKeyboardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniKeyboardTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,6 @@
 		34948A6D25CFAD8C00C16FD6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				34F8AD3425D8CFC3004ADB43 /* Keyboard */,
 				34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */,
 				34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */,
 				34F8AD3125D817D4004ADB43 /* Settings.bundle */,
@@ -210,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				34971F3925DADA8E00B6DBE2 /* UnitAppUtils.swift */,
+				340A384B25E3677800B94F66 /* TabBarViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -239,20 +239,12 @@
 			path = Structures;
 			sourceTree = "<group>";
 		};
-		34F8AD3425D8CFC3004ADB43 /* Keyboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Keyboard;
-			sourceTree = "<group>";
-		};
 		34F8AD3A25D8D070004ADB43 /* Unit Keyboard */ = {
 			isa = PBXGroup;
 			children = (
 				34F8AD3B25D8D070004ADB43 /* KeyboardViewController.swift */,
 				34F8AD3D25D8D070004ADB43 /* Info.plist */,
 				34F8AD4F25D8DB2B004ADB43 /* UnitKeyboardStoryboard.storyboard */,
-				34F8AD5A25D9191F004ADB43 /* UniKeyboardTextField.swift */,
 			);
 			path = "Unit Keyboard";
 			sourceTree = "<group>";
@@ -361,6 +353,7 @@
 			files = (
 				34948A5A25CFAC6B00C16FD6 /* MainViewController.swift in Sources */,
 				340A383E25E0CD8500B94F66 /* HistoryEntry.swift in Sources */,
+				340A384C25E3677800B94F66 /* TabBarViewController.swift in Sources */,
 				34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */,
 				34E8188425D985B2007108BA /* TemperatureUnits.swift in Sources */,
 				34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */,
@@ -388,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F8AD3C25D8D070004ADB43 /* KeyboardViewController.swift in Sources */,
-				34F8AD5C25D9191F004ADB43 /* UniKeyboardTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

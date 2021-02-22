@@ -5,13 +5,15 @@
 //  Created by Rammuni Ravidu Suien Silva on 2021-02-15.
 //
 
+// Contains the support methods needed throughout the app
 import UIKit
 class UnitAppUtils{
     
-    static var historyEntries: [HistoryEntry] = []//Should be initialized at the begining of the app
-    static var historyEntryIndex: Int = 0//Should be initialized at the begining of the app
+    static var historyEntries: [HistoryEntry] = []
     
-    
+    // Function vaidation of the all the unit input fields
+    // Valid   -> Highlights in BLUE
+    // Invalid -> Highlights in RED
     static func validateTextFieldInput(textFieldIn tf_in: UITextField, inputUnit c_unit: Units )->Bool{
         
         switch c_unit {
@@ -64,6 +66,7 @@ class UnitAppUtils{
         }
     }
     
+    // Rounding Method
     static func resultRound(_ val_d: Double,
         precision dec_Count: String ) -> Double
     {
@@ -86,7 +89,7 @@ class UnitAppUtils{
         }
     }
     
-    
+    // Handling the save button in proper states accordingly
     static func saveButtonState(saveButton s_btn: UIButton ,state: UIControl.State){
         
         switch state {
@@ -103,10 +106,11 @@ class UnitAppUtils{
         
     }
     
-    
+    // Serializing History model to the user deafaults data
     static func saveHistory(historyString h_str: String){
         let historyEntry: HistoryEntry = HistoryEntry(historyString: h_str)
         
+        // FIFO
         if historyEntries.count >= 5 {
             historyEntries.remove(at: 0)
         }
@@ -114,21 +118,16 @@ class UnitAppUtils{
         
         let userDefaults = UserDefaults.standard
         
+        // Converting to JSON
         let encJSON = JSONEncoder()
         
         if let encHistory = try? encJSON.encode(historyEntries) {
             userDefaults.set(encHistory, forKey: "historyEntries")
         }
-        
-        //let history
-        print("====")
-        for h in historyEntries {
-            print(h.historyEntry)
-        }
-        print("====")
-        // Save to UserDefaults
     }
     
+    // Achieving Data Persistency
+    // Synchronization of the saved data
     static func syncHistoryData() {
         let decJSON = JSONDecoder()
         let userDefaults = UserDefaults.standard
@@ -136,11 +135,6 @@ class UnitAppUtils{
         if let history = userDefaults.object(forKey: "historyEntries") as? Data {
             if let history = try? decJSON.decode([HistoryEntry].self, from: history) {
                 historyEntries = history
-                print("=UserDEf===")
-                for h in historyEntries {
-                    print(h.historyEntry)
-                }
-                print("===========")
             }
             
         }

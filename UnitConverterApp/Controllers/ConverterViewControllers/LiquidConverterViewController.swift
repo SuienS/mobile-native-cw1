@@ -7,12 +7,14 @@
 
 import UIKit
 
+// ViewController for Liquid Converter
 class LiquidConverterViewController: UIViewController {
 
     private var prec = "0"
     var validated = false
     
     
+    // Outlets for the UI elements
     @IBOutlet weak var buttonSave: UIButton!
     @IBOutlet weak var textFieldGallonUK: UITextField!
     @IBOutlet weak var textFieldLitre: UITextField!
@@ -26,9 +28,12 @@ class LiquidConverterViewController: UIViewController {
         super.viewDidLoad()
         title = "Liquids"
         
+        // Setting Precision
         prec = UserDefaults.standard.string(forKey: "precision_decimals") ?? "2" // Nil coalescing
 
         UserDefaults.standard.string(forKey: "precision_decimals")
+        
+        // UI setup
         
         buttonSave.isEnabled = false
         
@@ -55,13 +60,21 @@ class LiquidConverterViewController: UIViewController {
         textFieldFluidOunce.layer.borderColor = UIColor.systemGray.cgColor
         textFieldMillilitre.layer.borderColor = UIColor.systemGray.cgColor
         
+        
+        // Synchronizing the History Data
         UnitAppUtils.syncHistoryData()
 
     }
     
+    
+    // TextField EditingChanged Functions
+    
     @IBAction func textFieldGallonUKChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.GallonUK) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -80,6 +93,7 @@ class LiquidConverterViewController: UIViewController {
             let millilitreVal = UnitAppUtils.resultRound(litreValStruct.valueMillilitre, precision: prec)
             
             
+            // Displaying Output answers in UI
             textFieldLitre.text = String(litreVal)
             textFieldPintUK.text = String(pintUKVal)
             textFieldFluidOunce.text = String(fluidOunceVal)
@@ -95,8 +109,10 @@ class LiquidConverterViewController: UIViewController {
     
     @IBAction func textFieldLitreChanged(_ sender: UITextField) {
         
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Litre) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -114,7 +130,7 @@ class LiquidConverterViewController: UIViewController {
             let fluidOunceVal = UnitAppUtils.resultRound(fluidOunceValStruct.valueFluidOunce, precision: prec)
             let millilitreVal = UnitAppUtils.resultRound(litreValStruct.valueMillilitre, precision: prec)
             
-            
+            // Displaying Output answers in UI
             textFieldGallonUK.text = String(gallonUKVal)
             textFieldPintUK.text = String(pintUKVal)
             textFieldFluidOunce.text = String(fluidOunceVal)
@@ -131,8 +147,10 @@ class LiquidConverterViewController: UIViewController {
     
     @IBAction func textFieldPintUKChanged(_ sender: UITextField) {
         
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.PintUK) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -150,7 +168,7 @@ class LiquidConverterViewController: UIViewController {
             let fluidOunceVal = UnitAppUtils.resultRound(fluidOunceValStruct.valueFluidOunce, precision: prec)
             let millilitreVal = UnitAppUtils.resultRound(litreValStruct.valueMillilitre, precision: prec)
             
-            
+            // Displaying Output answers in UI
             textFieldGallonUK.text = String(gallonUKVal)
             textFieldLitre.text = String(litreVal)
             textFieldFluidOunce.text = String(fluidOunceVal)
@@ -166,8 +184,11 @@ class LiquidConverterViewController: UIViewController {
     }
     
     @IBAction func textFieldFluidOunceChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.FluidOunce) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -185,7 +206,7 @@ class LiquidConverterViewController: UIViewController {
             let pintUKVal = UnitAppUtils.resultRound(pintUKValStruct.valuePintUK, precision: prec)
             let millilitreVal = UnitAppUtils.resultRound(litreValStruct.valueMillilitre, precision: prec)
             
-            
+            // Displaying Output answers in UI
             textFieldGallonUK.text = String(gallonUKVal)
             textFieldLitre.text = String(litreVal)
             textFieldPintUK.text = String(pintUKVal)
@@ -200,8 +221,11 @@ class LiquidConverterViewController: UIViewController {
     }
     
     @IBAction func textFieldMillilitreChanged(_ sender: UITextField) {
+        
+        // Validating the Input
         if UnitAppUtils.validateTextFieldInput(textFieldIn: sender, inputUnit: Units.Millilitre) {
             
+            // Retriving Precision setting
             prec = UserDefaults.standard.string(forKey: "precision_decimals")  ?? "2"
             
             let doubleVal = Double(sender.text!)!
@@ -219,7 +243,7 @@ class LiquidConverterViewController: UIViewController {
             let fluidOunceVal = UnitAppUtils.resultRound(fluidOunceValStruct.valueFluidOunce, precision: prec)
             let litreVal = UnitAppUtils.resultRound(millilitreValStruct.valueLitre, precision: prec)
             
-            
+            // Displaying Output answers in UI
             textFieldGallonUK.text = String(gallonUKVal)
             textFieldPintUK.text = String(pintUKVal)
             textFieldFluidOunce.text = String(fluidOunceVal)
@@ -237,12 +261,12 @@ class LiquidConverterViewController: UIViewController {
     
     
     
-    // Support Functions
+    // Graying the TextFields that are not active
     @IBAction func textFieldEditEnded(_ sender: UITextField) {
         sender.layer.borderColor = UIColor.systemGray.cgColor
     }
     
-    
+    // Save Button Handling
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if validated {
             sender.setTitle("Saved", for: .disabled)
@@ -251,6 +275,7 @@ class LiquidConverterViewController: UIViewController {
         }
     }
     
+    // Generating the History entry to be saved
     func saveHistory() {
         var historyEntry = "Liquid: "
         historyEntry += "\( textFieldGallonUK.text ?? "er" ) gal|"
@@ -262,7 +287,7 @@ class LiquidConverterViewController: UIViewController {
         UnitAppUtils.saveHistory(historyString: historyEntry)
     }
     
-    
+    // Dismiss keyboard on endEditing
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
