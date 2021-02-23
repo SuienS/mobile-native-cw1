@@ -16,6 +16,7 @@
 		340A384225E11A2E00B94F66 /* HistorySingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */; };
 		340A384625E15AC100B94F66 /* LiquidUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384525E15AC100B94F66 /* LiquidUnits.swift */; };
 		340A384C25E3677800B94F66 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340A384B25E3677800B94F66 /* TabBarViewController.swift */; };
+		344245DA25E4A52F000FBD45 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */; };
 		34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5525CFAC6B00C16FD6 /* AppDelegate.swift */; };
 		34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5725CFAC6B00C16FD6 /* SceneDelegate.swift */; };
 		34948A5A25CFAC6B00C16FD6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34948A5925CFAC6B00C16FD6 /* MainViewController.swift */; };
@@ -24,7 +25,6 @@
 		34948A6225CFAC6F00C16FD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34948A6025CFAC6F00C16FD6 /* LaunchScreen.storyboard */; };
 		34971F3A25DADA8E00B6DBE2 /* UnitAppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34971F3925DADA8E00B6DBE2 /* UnitAppUtils.swift */; };
 		34D573F325CFCDF400DBEE99 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D573F225CFCDF400DBEE99 /* SettingsViewController.swift */; };
-		34D573F625CFCE1100DBEE99 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */; };
 		34D5740125CFD1BE00DBEE99 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */; };
 		34D5740825CFDC6700DBEE99 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */; };
 		34D5740C25CFDDC600DBEE99 /* WeightConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */; };
@@ -197,7 +197,6 @@
 			children = (
 				34948A5925CFAC6B00C16FD6 /* MainViewController.swift */,
 				34D573F225CFCDF400DBEE99 /* SettingsViewController.swift */,
-				34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */,
 				34D5740025CFD1BE00DBEE99 /* IntroViewController.swift */,
 				34D5740725CFDC6700DBEE99 /* ConverterViewController.swift */,
 				340A384125E11A2E00B94F66 /* HistorySingleViewController.swift */,
@@ -217,6 +216,7 @@
 		34D5740A25CFDD8E00DBEE99 /* ConverterViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				34D573F525CFCE1100DBEE99 /* HistoryViewController.swift */,
 				34D5740B25CFDDC600DBEE99 /* WeightConverterViewController.swift */,
 				3401D3A525CFECCC00F9FCD5 /* TemperatureConverterViewController.swift */,
 				3401D3AB25CFED1600F9FCD5 /* LiquidConverterViewController.swift */,
@@ -356,6 +356,7 @@
 				340A384C25E3677800B94F66 /* TabBarViewController.swift in Sources */,
 				34948A5625CFAC6B00C16FD6 /* AppDelegate.swift in Sources */,
 				34E8188425D985B2007108BA /* TemperatureUnits.swift in Sources */,
+				344245DA25E4A52F000FBD45 /* HistoryViewController.swift in Sources */,
 				34948A5825CFAC6B00C16FD6 /* SceneDelegate.swift in Sources */,
 				3401D3AF25CFED3600F9FCD5 /* LengthConverterViewController.swift in Sources */,
 				3401D3AC25CFED1600F9FCD5 /* LiquidConverterViewController.swift in Sources */,
@@ -366,7 +367,6 @@
 				3401D3A625CFECCC00F9FCD5 /* TemperatureConverterViewController.swift in Sources */,
 				34D5740125CFD1BE00DBEE99 /* IntroViewController.swift in Sources */,
 				3401D3B225CFED6A00F9FCD5 /* SpeedConverterViewController.swift in Sources */,
-				34D573F625CFCE1100DBEE99 /* HistoryViewController.swift in Sources */,
 				34D5740825CFDC6700DBEE99 /* ConverterViewController.swift in Sources */,
 				340A383A25E0271000B94F66 /* SpeedUnits.swift in Sources */,
 				34D573F325CFCDF400DBEE99 /* SettingsViewController.swift in Sources */,

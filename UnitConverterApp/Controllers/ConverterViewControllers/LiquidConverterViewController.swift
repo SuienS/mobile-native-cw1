@@ -13,6 +13,8 @@ class LiquidConverterViewController: UIViewController {
     private var prec = "0"
     var validated = false
     
+    // Key for UserDefaults history data
+    var key = "historyEntriesLiquid"
     
     // Outlets for the UI elements
     @IBOutlet weak var buttonSave: UIButton!
@@ -62,7 +64,7 @@ class LiquidConverterViewController: UIViewController {
         
         
         // Synchronizing the History Data
-        UnitAppUtils.syncHistoryData()
+        UnitAppUtils.syncHistoryData(historyEntries: &UnitAppUtils.historyEntriesLiquid, key: key)
 
     }
     
@@ -275,6 +277,16 @@ class LiquidConverterViewController: UIViewController {
         }
     }
     
+    // Preparing the history view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Create a new variable to store the instance of PlayerTableViewController
+        if let historyViewController = segue.destination as? HistoryViewController {
+            historyViewController.historyEntries = UnitAppUtils.historyEntriesLiquid
+            historyViewController.key = key
+            
+        }
+    }
+    
     // Generating the History entry to be saved
     func saveHistory() {
         var historyEntry = "Liquid: "
@@ -284,8 +296,7 @@ class LiquidConverterViewController: UIViewController {
         historyEntry += "\( textFieldFluidOunce.text ?? "er" ) fl oz|"
         historyEntry += "\( textFieldMillilitre.text ?? "er" ) ml|"
  
-        UnitAppUtils.saveHistory(historyString: historyEntry)
-    }
+        UnitAppUtils.saveHistory(historyEntries: &UnitAppUtils.historyEntriesLiquid, key:key, historyString: historyEntry)    }
     
     // Dismiss keyboard on endEditing
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

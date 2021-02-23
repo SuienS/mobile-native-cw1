@@ -13,6 +13,9 @@ class TemperatureConverterViewController: UIViewController {
     private var prec = "0"
     var validated = false
     
+    // Key for UserDefaults history data
+    var key = "historyEntriesTemperature"
+    
     
     // Outlets for the UI elements
     @IBOutlet weak var buttonSave: UIButton!
@@ -52,7 +55,7 @@ class TemperatureConverterViewController: UIViewController {
         textFieldFahrenheit.layer.borderColor = UIColor.systemGray.cgColor
         
         // Synchronizing the History Data
-        UnitAppUtils.syncHistoryData()
+        UnitAppUtils.syncHistoryData(historyEntries: &UnitAppUtils.historyEntriesTemp, key: key)
 
     }
     
@@ -171,6 +174,16 @@ class TemperatureConverterViewController: UIViewController {
         }
     }
     
+    // Preparing the history view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Create a new variable to store the instance of PlayerTableViewController
+        if let historyViewController = segue.destination as? HistoryViewController {
+            historyViewController.historyEntries = UnitAppUtils.historyEntriesTemp
+            historyViewController.key = key
+            
+        }
+    }
+    
     
     // Generating the History entry to be saved
     func saveHistory() {
@@ -179,7 +192,7 @@ class TemperatureConverterViewController: UIViewController {
         historyEntry += "\( textFieldKelvin.text ?? "er" ) K|"
         historyEntry += "\( textFieldFahrenheit.text ?? "er" ) °F|"
 
-        UnitAppUtils.saveHistory(historyString: historyEntry)
+        UnitAppUtils.saveHistory(historyEntries: &UnitAppUtils.historyEntriesTemp, key:key, historyString: historyEntry)
     }
     
     // Dismiss keyboard on endEditing

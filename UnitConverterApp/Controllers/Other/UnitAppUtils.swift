@@ -9,8 +9,12 @@
 import UIKit
 class UnitAppUtils{
     
-    static var historyEntries: [HistoryEntry] = []
-    
+    static var historyEntriesWeight: [HistoryEntry] = []
+    static var historyEntriesTemp: [HistoryEntry] = []
+    static var historyEntriesLiquid: [HistoryEntry] = []
+    static var historyEntriesLength: [HistoryEntry] = []
+    static var historyEntriesSpeed: [HistoryEntry] = []
+
     // Function vaidation of the all the unit input fields
     // Valid   -> Highlights in BLUE
     // Invalid -> Highlights in RED
@@ -106,35 +110,35 @@ class UnitAppUtils{
         
     }
     
-    // Serializing History model to the user deafaults data
-    static func saveHistory(historyString h_str: String){
+    // Serializing History model to the user deafaults data  // historyEntries -> Static Array  //key - e.g - historyEntriesWeight
+    static func saveHistory(historyEntries h_entries: inout [HistoryEntry], key: String, historyString h_str: String){
         let historyEntry: HistoryEntry = HistoryEntry(historyString: h_str)
         
         // FIFO
-        if historyEntries.count >= 5 {
-            historyEntries.remove(at: 0)
+        if h_entries.count >= 5 {
+            h_entries.remove(at: 0)
         }
-        historyEntries.append(historyEntry)
+        h_entries.append(historyEntry)
         
         let userDefaults = UserDefaults.standard
         
         // Converting to JSON
         let encJSON = JSONEncoder()
         
-        if let encHistory = try? encJSON.encode(historyEntries) {
-            userDefaults.set(encHistory, forKey: "historyEntries")
+        if let encHistory = try? encJSON.encode(h_entries) {
+            userDefaults.set(encHistory, forKey: key)
         }
     }
     
     // Achieving Data Persistency
-    // Synchronization of the saved data
-    static func syncHistoryData() {
+    // Synchronization of the saved data   //key - e.g - historyEntriesWeight
+    static func syncHistoryData(historyEntries h_entries: inout [HistoryEntry], key: String) {
         let decJSON = JSONDecoder()
         let userDefaults = UserDefaults.standard
         
-        if let history = userDefaults.object(forKey: "historyEntries") as? Data {
+        if let history = userDefaults.object(forKey: key) as? Data {
             if let history = try? decJSON.decode([HistoryEntry].self, from: history) {
-                historyEntries = history
+                h_entries = history
             }
             
         }

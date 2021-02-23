@@ -12,6 +12,9 @@ class SpeedConverterViewController: UIViewController {
 
     private var prec = "0"
     var validated = false
+        
+    // Key for UserDefaults history data
+    var key = "historyEntriesSpeed"
     
     
     // Outlets for the UI elements
@@ -57,8 +60,7 @@ class SpeedConverterViewController: UIViewController {
         textFieldKnots.layer.borderColor = UIColor.systemGray.cgColor
        
         // Synchronizing the History Data
-        UnitAppUtils.syncHistoryData()
-
+        UnitAppUtils.syncHistoryData(historyEntries: &UnitAppUtils.historyEntriesSpeed, key: key)
     }
     
     // TextField EditingChanged Functions
@@ -233,6 +235,17 @@ class SpeedConverterViewController: UIViewController {
     }
     
     
+    // Preparing the history view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Create a new variable to store the instance of PlayerTableViewController
+        if let historyViewController = segue.destination as? HistoryViewController {
+            historyViewController.historyEntries = UnitAppUtils.historyEntriesSpeed
+            historyViewController.key = key
+            
+        }
+    }
+    
+    
     // Generating the History entry to be saved
     func saveHistory() {
         var historyEntry = "Speed: "
@@ -241,8 +254,7 @@ class SpeedConverterViewController: UIViewController {
         historyEntry += "\( textFieldMPH.text ?? "er" ) mih⁻¹|"
         historyEntry += "\( textFieldKnots.text ?? "er" ) knots|"
  
-        UnitAppUtils.saveHistory(historyString: historyEntry)
-    }
+        UnitAppUtils.saveHistory(historyEntries: &UnitAppUtils.historyEntriesSpeed, key:key, historyString: historyEntry)    }
     
     // Dismiss keyboard on endEditing
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
